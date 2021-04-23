@@ -17,4 +17,8 @@ URL = 'http://localhost:8000/offices';
   create(data: IOffice): Observable<void> {
     return this.httpClient.post<void>(this.URL, data);
   }
+
+  delete(id: number): Observable<void> {
+    return this.httpClient.delete<void>(`${this.URL}/${id}`);
+  }
 }
