@@ -23,5 +23,11 @@ export class AppComponent implements OnInit{
     this.officeService.getAll().subscribe(value => this.offices = value);
   }
 
+  del(id: number): void {
+    this.officeService.delete(id).subscribe(() => this.ngOnInit());
+  }
 
+  save(form: FormGroup): void {
+    this.officeService.create(form.getRawValue().subscribe(() => this.ngOnInit()));
+  }
 }
